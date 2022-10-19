@@ -26,6 +26,7 @@ import (
 	"github.com/newrelic/newrelic-client-go/v2/pkg/notifications"
 	"github.com/newrelic/newrelic-client-go/v2/pkg/nrdb"
 	"github.com/newrelic/newrelic-client-go/v2/pkg/nrqldroprules"
+	"github.com/newrelic/newrelic-client-go/v2/pkg/obfuscation"
 	"github.com/newrelic/newrelic-client-go/v2/pkg/plugins"
 	"github.com/newrelic/newrelic-client-go/v2/pkg/region"
 	"github.com/newrelic/newrelic-client-go/v2/pkg/servicelevel"
@@ -53,6 +54,7 @@ type NewRelic struct {
 	Notifications   notifications.Notifications
 	Nrdb            nrdb.Nrdb
 	Nrqldroprules   nrqldroprules.Nrqldroprules
+	Obfuscation     obfuscation.Obfuscation
 	Plugins         plugins.Plugins
 	ServiceLevel    servicelevel.Servicelevel
 	Synthetics      synthetics.Synthetics
@@ -103,6 +105,7 @@ func New(opts ...ConfigOption) (*NewRelic, error) {
 		Notifications:   notifications.New(cfg),
 		Nrdb:            nrdb.New(cfg),
 		Nrqldroprules:   nrqldroprules.New(cfg),
+		Obfuscation:     obfuscation.New(cfg),
 		Plugins:         plugins.New(cfg),
 		ServiceLevel:    servicelevel.New(cfg),
 		Synthetics:      synthetics.New(cfg),

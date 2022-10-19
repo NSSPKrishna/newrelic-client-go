@@ -926,6 +926,34 @@ packages:
       - name: TimeWindowInput
 
 
+  - name: obfuscation
+    path: pkg/obfuscation
+    import_path: github.com/newrelic/newrelic-client-go/v2/pkg/obfuscation
+    generators:
+      - typegen
+      - nerdgraphclient
+    imports:
+      - github.com/newrelic/newrelic-client-go/v2/pkg/accounts
+      - github.com/newrelic/newrelic-client-go/v2/pkg/common
+      - github.com/newrelic/newrelic-client-go/v2/pkg/nrtime
+      - github.com/newrelic/newrelic-client-go/v2/pkg/users
+    queries:
+      - path: ["actor", "account", "logConfigurations"]
+        endpoints:
+          - name: obfuscationExpressions
+            max_query_field_depth: 2
+    mutations:
+      - name: logConfigurationsCreateObfuscationExpression
+        max_query_field_depth: 3
+      - name: logConfigurationsDeleteObfuscationExpression
+        max_query_field_depth: 1
+      - name: logConfigurationsUpdateObfuscationExpression
+        max_query_field_depth: 2
+#    types:
+#      -name: LogConfigurationsCreateObfuscationExpressionInput
+#      field_type_override: "*LogConfigurationsCreateObfuscationExpressionInput"
+
+
   - name: users
     path: pkg/users
     import_path: github.com/newrelic/newrelic-client-go/v2/pkg/users
