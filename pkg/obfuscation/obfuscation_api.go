@@ -72,7 +72,7 @@ const LogConfigurationsCreateObfuscationExpressionMutation = `mutation(
 // Delete an obfuscation expression.
 func (a *Obfuscation) LogConfigurationsDeleteObfuscationExpression(
 	accountID int,
-	iD int,
+	iD string,
 ) (*LogConfigurationsObfuscationExpression, error) {
 	return a.LogConfigurationsDeleteObfuscationExpressionWithContext(context.Background(),
 		accountID,
@@ -84,7 +84,7 @@ func (a *Obfuscation) LogConfigurationsDeleteObfuscationExpression(
 func (a *Obfuscation) LogConfigurationsDeleteObfuscationExpressionWithContext(
 	ctx context.Context,
 	accountID int,
-	iD int,
+	iD string,
 ) (*LogConfigurationsObfuscationExpression, error) {
 
 	resp := LogConfigurationsDeleteObfuscationExpressionQueryResponse{}

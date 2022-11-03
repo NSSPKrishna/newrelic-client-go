@@ -48,7 +48,7 @@ type LogConfigurationsObfuscationExpression struct {
 	// Description of the expression.
 	Description string `json:"description,omitempty"`
 	// The id of the obfuscation expression.
-	ID int `json:"id"`
+	ID string `json:"id"`
 	// Name of the expression.
 	Name string `json:"name"`
 	// Regular expression for this obfuscation expression. Capture groups will be obscured on matching.
@@ -65,7 +65,7 @@ type LogConfigurationsUpdateObfuscationExpressionInput struct {
 	// Description of expression.
 	Description string `json:"description,omitempty"`
 	// Expression Id.
-	ID int `json:"id"`
+	ID string `json:"id"`
 	// Name of expression.
 	Name string `json:"name,omitempty"`
 	// Regex of expression.
@@ -90,10 +90,3 @@ type obfuscationExpressionsResponse struct {
 
 // DateTime - The `DateTime` scalar represents a date and time. The `DateTime` appears as an ISO8601 formatted string.
 type DateTime string
-
-// ID - The `ID` scalar type represents a unique identifier, often used to
-// refetch an object or as key for a cache. The ID type appears in a JSON
-// response as a String; however, it is not intended to be human-readable.
-// When expected as an input type, any string (such as `"4"`) or integer
-// (such as `4`) input value will be accepted as an ID.
-type ID string
